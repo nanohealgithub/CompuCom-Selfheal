@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_formatter">
+    <sys_ui_formatter action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <angular_module/>
+        <formatter>x_179178_compucom_Action History</formatter>
+        <name>CompuCom-Selfheal Action History</name>
+        <sys_class_name>sys_ui_formatter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-19 12:10:47</sys_created_on>
+        <sys_id>f64089fadbb12300052464d7489619df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CompuCom-Selfheal Action History</sys_name>
+        <sys_package display_value="CompuCom-Selfheal" source="x_179178_compucom">7ee2fb62db312300052464d748961922</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CompuCom-Selfheal">7ee2fb62db312300052464d748961922</sys_scope>
+        <sys_update_name>sys_ui_formatter_f64089fadbb12300052464d7489619df</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-19 12:10:47</sys_updated_on>
+        <table>incident</table>
+        <type>formatter</type>
+    </sys_ui_formatter>
+</record_update>

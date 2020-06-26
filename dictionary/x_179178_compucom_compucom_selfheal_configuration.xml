@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="CompuCom-Selfheal Configuration" max_length="40" name="x_179178_compucom_compucom_selfheal_configuration" type="collection">
         <element label="Api Token" mandatory="true" max_length="1024" name="api_token" type="string"/>
         <element label="API URL" mandatory="true" max_length="1024" name="api_url" type="string"/>

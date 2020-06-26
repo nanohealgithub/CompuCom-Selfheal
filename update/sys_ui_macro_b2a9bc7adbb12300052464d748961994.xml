@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_ui_macro">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
     <sys_ui_macro action="INSERT_OR_UPDATE">
         <active>true</active>
         <category>general</category>
@@ -11,14 +10,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-11-19 11:46:11</sys_created_on>
         <sys_id>b2a9bc7adbb12300052464d748961994</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Basic Info</sys_name>
         <sys_package display_value="CompuCom-Selfheal" source="x_179178_compucom">7ee2fb62db312300052464d748961922</sys_package>
         <sys_policy/>
         <sys_scope display_value="CompuCom-Selfheal">7ee2fb62db312300052464d748961922</sys_scope>
         <sys_update_name>sys_ui_macro_b2a9bc7adbb12300052464d748961994</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-29 07:40:53</sys_updated_on>
+        <sys_updated_on>2020-06-09 12:53:53</sys_updated_on>
         <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
     <style>
@@ -278,6 +277,102 @@
             </div>-->
             <div id="moreInfoNotAvailable" style="padding-top: 5px;color: red;display: none;"></div>
         </div>
+		
+		<div class="container" style="width:100%;">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panelhead">Other Information</div>
+                        <div class="panel-body">
+                            <div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last machine restarted time:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-lastlogon"></div>
+								
+							</div>	
+							 <div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last machine boot time (msec):</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-lastboottime"></div>
+								
+							</div>
+							
+							 <div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last time microsoft patches were applied:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-microsoftpatch"></div>
+								
+							</div>
+							
+							 <div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-6 col-xs-8"><strong>Last time other patches were applied:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-otherpatch"></div>
+								
+							</div>
+							
+							 <div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last Anti virus definition dates:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-avupdatedate"></div>
+								
+							</div>
+							<div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last Anti virus definition status:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-avupdatestatus"></div>
+								
+							</div>
+							<div class="row panelrow">
+								
+								<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"><strong>Last Anti virus definition dates:</strong></div>
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="basicinfo-avupdatedate"></div>
+								
+							</div>
+		
+						</div>
+					</div>	
+				</div>
+				
+				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panelhead">Last events</div>
+                        <div class="panel-body">
+							<div class="row">
+								<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="eventlist">
+									
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>	
+				
+				
+				
+			</div>	
+		</div>
+		<div class="container" style="width:100%;">
+            <div class="row">
+				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panelhead">Last installed softwares</div>
+                        <div class="panel-body">
+							<div class="row">
+								<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="softlist">
+									
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!--<div class="container" style="width:100%;">
+            <div class="row">
+				<iframe src="https://qastaging.nanoheal.com/DashboardVV/admin/servicetest.php"></iframe>
+			</div>
+		</div>	 -->
+		
     </div>
     
     <datalist id="serviceTagList">
@@ -318,6 +413,7 @@
         var notificationdiv = "";
         var ciname = "";
         var currentTab = 1;
+	
         document.addEventListener('DOMContentLoaded', function () {
             // Retrieving Configuration from DB and Validating
             var nanoheal_config = new GlideRecord('x_179178_compucom_compucom_selfheal_configuration');
@@ -348,11 +444,22 @@
                     } else {
                         console.log('Already Connected to Node');
                     }
+					console.log("Check session availability");
+					if (existingsession = checkSessionValidity()) {
+						console.log("Check session");
+						 getTicketInfo(existingsession);
+					} else {
+						console.log("Create new session");
+                        createNewSession(getTicketInfo);
+                    }
                     if (existingsession = checkSessionValidity()) {
-                        getMachineList(existingsession);
-                    } else {
+						console.log("Check session");
+						 getMachineList(existingsession);
+					} else {
+						console.log("Create new session");
                         createNewSession(getMachineList);
                     }
+					
                 } catch (e) {
                     console.log("Error is");
                     console.log(e);
@@ -374,32 +481,44 @@
                 document.getElementById("errormessage5").style.display = "block";
                 return;
             }
+		
+		
+			
+		   
 
             // Retrieving Service Tag from DB and Validating
-            var config_item = new GlideRecord('cmdb_ci');
+		console.log("Sys Id"+document.getElementById('incident.cmdb_ci').value);
+			var config_item = new GlideRecord('cmdb_ci');
             config_item.addQuery('sys_id', document.getElementById('incident.cmdb_ci').value);
             config_item.query();   // Issue the query to the database to get relevant records  
             if (config_item.next()) {
-                serviceTag = config_item.x_179178_nanohealc_nh_reference_id;
+                serviceTag = config_item.asset_tag;
+				console.log("Service Tag 1"+serviceTag);
                 ciname = config_item.name;
-                if (existingsession = checkSessionValidity()) {
-                    validateServiceTag(existingsession);
+				if (existingsession = checkSessionValidity()) {
+					validateServiceTag(existingsession);
                 } else {
                     createNewSession(validateServiceTag);
                 }
             } else {
+			console.log("Service Tag checking");
                 try {
-                    var ele = document.getElementById('incident.x_179178_nanohealc_service_tag');
+				console.log("Service Tag Det"+document.getElementById('incident.x_179178_nanohealc_service_tag'));
+				   var ele = document.getElementById('incident.x_179178_nanohealc_service_tag');
+					console.log("Service Tag 1 checking");
                     if (typeof (ele) != 'undefined')
                     {
                         if (ele != null) {
                             serviceTag = ele.value;
+							console.log("Service Tag 2"+serviceTag);
                             if (serviceTag != "") {
+								console.log("Inside trigger function");
                                 triggerAction(getNotificationData);
                                 triggerAction(getBasicInfo);
                                 triggerAction(getActionHistory);
                                 triggerAction(getInterativeData);
-                                triggerAction(getProvision);
+                                //triggerAction(getProvision);
+		
                             } else {
                                 throw "Service Tag Empty";
                             }
@@ -476,6 +595,70 @@
             });
             
         })
+		
+		//Get Machine and passlevel details
+		function getTicketInfo(sessionData){
+		console.log("Its inside ticket info")
+			var authorization = sessionData.Authorization, authToken = sessionData.AuthToken;
+			var ticketId = document.getElementById('incident.number').value;
+		console.log("TicketId" + ticketId);
+			var ticketinfoRequest = new XMLHttpRequest();
+                var tikcetInfo = null;
+                //document.getElementById("loading1").style.display = "block";
+                ticketinfoRequest.onreadystatechange = function () {
+                if (ticketinfoRequest.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+                        //document.getElementById("loading1").style.display = "none";
+                        if (ticketinfoRequest.status == 200) {
+							console.log("Tikect Res"+JSON.stringify(ticketinfoRequest));
+                            tikcetInfo = JSON.parse(ticketinfoRequest.responseText);
+                            if (tikcetInfo['status'] == "success") {
+							console.log("Its called"+tikcetInfo);
+                                serviceTag = tikcetInfo['machine'];
+								passlevel = tikcetInfo['site'];
+								document.getElementById('incident.cmdb_ci').value = serviceTag;
+						if (serviceTag != "") {
+								console.log("Inside trigger function");
+                                triggerAction(getNotificationData);
+                                triggerAction(getBasicInfo);
+                                triggerAction(getActionHistory);
+                                triggerAction(getInterativeData);
+                                //triggerAction(getProvision);
+		
+                            } else {
+                                serviceTag = "";
+                            }
+									
+
+                        } else if (ticketinfoRequest.status == 401) {
+                            tikcetInfo = JSON.parse(ticketinfoRequest.responseText);
+                            serviceTag = '';
+							passlevel = '';
+                        } else {
+                            document.getElementById('basicInfoTab').style.display = 'none';
+                            document.getElementById('info1').innerHTML = '<red>Something went wrong!</red>';
+                            document.getElementById('info1').style.display = 'block';
+                        }
+                    }
+
+                }
+		}
+			try {
+                    if (authorization == "")
+                        throw "Authorization String Not set In Tikect information Request!";
+                    if (authToken == "")
+                        throw "Authtoken String Not set In Tikect information Request!";
+                   console.log("Going to get ticket info");
+                    ticketinfoRequest.open("POST", baseUrl + "/api/profile/getTicketInfo");
+                    ticketinfoRequest.setRequestHeader("Authorization", "Bearer " + authorization);
+                    ticketinfoRequest.setRequestHeader("X-API-KEY", authToken);
+                    ticketinfoRequest.send(JSON.stringify({"scop": "getTicketInfo","ticketNo":ticketId}));
+                } catch (e) {
+                    console.log("Ticket error"+e);
+                }
+		
+		
+		
+		}
 
         // Getting Action history from API
         function getBasicInfo(sessionData) {
@@ -523,6 +706,62 @@
                                 document.getElementById('basicinfo-operatingsystem').innerHTML = basicInfo['os'];
                                 document.getElementById('basicinfo-servicepack').innerHTML = "-";
                                 document.getElementById('basicinfo-ostype').innerHTML = basicInfo['ntproducttype'];
+		
+								// Other information
+								document.getElementById('basicinfo-lastlogon').innerHTML = basicInfo['lastlogontime'];
+								document.getElementById('basicinfo-lastboottime').innerHTML = basicInfo['lastboottime'];
+								document.getElementById('basicinfo-microsoftpatch').innerHTML = basicInfo['lastmicrosofttimepatch'];
+								document.getElementById('basicinfo-otherpatch').innerHTML = basicInfo['lastotherpatchtime'];
+								document.getElementById('basicinfo-avupdatestatus').innerHTML = basicInfo['avdefstatus'];
+								document.getElementById('basicinfo-avupdatedate').innerHTML = basicInfo['avdefdate'];
+		
+								//Installed software program
+								var installprogarmlist = basicInfo['installedPrograms'];
+								var softdiv = document.getElementById('softlist');
+                                  console.log(installprogarmlist);
+								 var divtxt = "";
+								if(installprogarmlist.length > 0){
+		                        var len = installprogarmlist.length;
+		                        var i =0;
+								
+		                        installprogarmlist.forEach(function(e){
+		
+		               console.log(e.installedProgram);
+		divtxt = divtxt  + e.installedProgram + " \xa0\xa0	| \xa0\xa0	<i> Date: "+ e.date + "</i><hr/>";
+		});
+								softdiv.innerHTML = divtxt;
+								}else{
+										softdiv.innerHTML = " No Installed softwares found";								   
+																		   
+									}
+					
+								// Last events 											   
+		
+								var eventlist = basicInfo['events'];
+								var eventdiv = document.getElementById('eventlist');
+ 
+								 var diveventtxt = "";
+																			   
+							if(eventlist.length > 0){											   
+								/*for(var i=eventlist.length; i > 0 ; i--) {
+								
+										 
+										console.log(eventlist[i]['event']);
+										divtxt = divtxt  + eventlist[i]['event'] + " - "+ eventlist[i]['date'] + "<br/>";
+		
+		
+								}*/
+		                         eventlist.forEach(function(e){
+		
+		                      console.log(e.event);
+		divtxt = divtxt  + e.event + " \xa0\xa0	| \xa0\xa0	<i> Date:"+ e.date + "</i><hr/>";
+		});
+									eventdiv.innerHTML = divtxt;
+								}else{
+									eventdiv.innerHTML = "No events found";					  
+								}
+		
+		
                             }
 
                         } else if (basicInfoRequest.status == 401) {
@@ -891,10 +1130,34 @@
 //                        document.getElementById("errorTab4").style.display = "block";
                 document.getElementById("errorTab5").style.display = "block";
             } else {
+				console.log("Got Service Tag" + serviceTag);
                 document.getElementById("loading1").style.display = "block";
                 document.getElementById("loading2").style.display = "block";
                 document.getElementById("loading3").style.display = "block";
                 document.getElementById("loading5").style.display = "block";
+				if(serviceTag == undefined){
+					console.log("Inside service tag settings");
+					var esel = document.getElementById('incident.cmdb_ci');
+					if(esel != 'undefined'){
+		
+						if(esel.value != null){
+							serviceValue = document.getElementById('incident.cmdb_ci').value;
+		
+							var config_item = new GlideRecord('cmdb_ci');
+            config_item.addQuery('sys_id', serviceValue);
+            config_item.query();   // Issue the query to the database to get relevant records  
+            if (config_item.next()) {
+				console.log("Config Item" +  JSON.stringify(config_item));
+                serviceTag = config_item.asset_tag;
+		
+				console.log("Final Service Tag " +  serviceTag);
+		}
+		
+						}
+					}
+					
+				}	
+				triggerAction(getMachineDetails);
                 var validateServiceTag = new XMLHttpRequest();
                 var validateServiceTagResponse = null;
                 validateServiceTag.onreadystatechange = function () {
@@ -928,31 +1191,37 @@
                             document.getElementById("machinename3").innerHTML = validateServiceTagResponse.machinename;
                             document.getElementById("machinestatus5").innerHTML = validateServiceTagResponse.machinestatus;
                             document.getElementById("machinename5").innerHTML = validateServiceTagResponse.machinename;
-                            triggerAction(getBasicInfo);
+							/*if(passlevel == ""){
+								triggerAction(getMachineDetails);
+							}*/
+							triggerAction(getBasicInfo);
                             triggerAction(getNotificationData);
                             triggerAction(getActionHistory);
                             triggerAction(getInterativeData);
-//                            triggerAction(getProvision);
+//                          triggerAction(getProvision);
                         }
                     }
                 }
-                validateServiceTag.open("POST", baseUrl + "/api/profile/machineOnlineStatus");
+		
+				
+				console.log("Test Service "+ serviceTag);
+				validateServiceTag.open("POST", baseUrl + "/api/profile/machineOnlineStatus");
                 validateServiceTag.setRequestHeader("Authorization", "Bearer " + authorization);
                 validateServiceTag.setRequestHeader("X-API-KEY", authToken);
-                validateServiceTag.send(JSON.stringify({"machine": serviceTag, "AgentName": window.NOW.user_name, "AgentEmail": window.NOW.user_email}));
+				validateServiceTag.send(JSON.stringify({"machine": serviceTag, "AgentName": window.NOW.user_name, "AgentEmail": window.NOW.user_email}));
             }
         }
 
         function getMachineDetails(sessionData) {
             var authorization = sessionData.Authorization, authToken = sessionData.AuthToken;
-            if (currentTab == 1)
+            /*if (currentTab == 1)
                 serviceTag = document.getElementById('servicetag1').value;
             if (currentTab == 2)
                 serviceTag = document.getElementById('servicetag2').value;
             if (currentTab == 3)
                 serviceTag = document.getElementById('servicetag3').value;
             if (currentTab == 5)
-                serviceTag = document.getElementById('servicetag5').value;
+                serviceTag = document.getElementById('servicetag5').value;*/
             document.getElementById('servicetag1').value = serviceTag
             document.getElementById('servicetag2').value = serviceTag
             document.getElementById('servicetag3').value = serviceTag
@@ -1061,6 +1330,7 @@
                                             document.getElementById('sitelist5').appendChild(opt5);
                                         }
                                     }
+								console.log("Inside device deatils");
                                 } else {
                                     document.getElementById("loading1").style.display = "none";
                                     document.getElementById("loading2").style.display = "none";
@@ -1126,7 +1396,7 @@
                             throw "Authtoken String Not set In Machine Basic Info Request!";
                         if (serviceTag == "")
                             throw "Servicetag Not set In Machine Basic Info Request!";
-                        getMachineDetailsRequest.open("POST", baseUrl + "/api/notification/getMachineDetails");
+                        getMachineDetailsRequest.open("POST", baseUrl + "/api/profile/getMachineDetails");
                         getMachineDetailsRequest.setRequestHeader("Authorization", "Bearer " + authorization);
                         getMachineDetailsRequest.setRequestHeader("X-API-KEY", authToken);
                         getMachineDetailsRequest.send(JSON.stringify({"scopvalue": serviceTag, "AgentName": window.NOW.user_name, "AgentEmail": window.NOW.user_email}));
@@ -1164,7 +1434,7 @@
                         }
                     }
                 }
-                getMachineListRequest.open("POST", baseUrl + "/api/notification/getMachinesList");
+                getMachineListRequest.open("POST", baseUrl + "/api/profile/getMachinesList");
                 getMachineListRequest.setRequestHeader("Authorization", "Bearer " + authorization);
                 getMachineListRequest.setRequestHeader("X-API-KEY", authToken);
                 getMachineListRequest.send(JSON.stringify({"AgentName": window.NOW.user_name, "AgentEmail": window.NOW.user_email}));
